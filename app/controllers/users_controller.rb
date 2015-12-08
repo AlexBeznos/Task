@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.errors.messages["Mum"] = "Can not update user"
+    @user.errors.messages["Mum"] = "Can not update user" # I want to see exception here instead of this shit
     respond_to do |format|
       format.json { render json: @user.errors }
     end
