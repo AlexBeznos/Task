@@ -5,25 +5,20 @@ class PlacesController < ApplicationController
   def index
     @places = Place.all
     respond_to do |format|
-      format.html {render json: @places} # TODO: i do not like to see information in output like id, created_at, updated_at
-                                         # do smthng with it
+      format.html {render json: place_to_json(@places) } #I can override to_json method , but I this it`s a bad practice
     end
   end
 
   def show
     respond_to do |format|
-      format.html { render json: @place }
+      format.html { render json: place_to_json(@place) }
     end
   end
 
   def update
-    @place.update(place_params) 
+    @place.update(place_params)
   end
 
-  def set_place
-    @place = Place.find(params[:id])
-  end
-  
   private
   # TODO: read about strong parameters, and what for we need it
   def place_params
@@ -34,4 +29,11 @@ class PlacesController < ApplicationController
     end
   end
 
+  def place_to_json(place)
+    place.to_json(:only => ["name","address","owner"])
+  end
+
+  def set_place
+    @place = Place.find(params[:id])
+  end
 end
