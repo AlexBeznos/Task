@@ -20,13 +20,9 @@ class PlacesController < ApplicationController
   end
 
   private
-  # TODO: read about strong parameters, and what for we need it
+
   def place_params
-    params.permit(:name, :address).tap do |param|
-      param[:owner] = param[:name] # it seems to me, you implement wrong logic
-                                   # it seems user of api should send :owner_name instead of just name
-                                   # but it up to you
-    end
+    params.permit(:name,:address,:owner)
   end
 
   def place_to_json(place)
