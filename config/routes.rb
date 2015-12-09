@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :places , :users
+  resources :places , :users # this method(resources) creates whole bunch of crud routes,
+                             # what for do you need whole this shit if in controller,
+                             # for instance in users,
+                             # you have only #index, #show, #update? Fix this!
 
 
 
