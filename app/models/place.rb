@@ -3,6 +3,11 @@ class Place < ActiveRecord::Base
             :owner,
             format: {
               with: /\A[a-zA-Z]+\z/,
-              message: "only allows letters" }, # FIXME: why do you think, address not gonna contain any numerical charachters?
+              message: "only allows letters" }, #
+            presence: true
+  validates :address ,
+            format: {
+              with: /\A[a-zA-Z1-9\.]+\z/,
+              message: "only allows letters digits and dots" },
             presence: true
 end
