@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :places , :users # this method(resources) creates whole bunch of crud routes,
-                             # what for do you need whole this shit if in controller,
-                             # for instance in users,
-                             # you have only #index, #show, #update? Fix this!
 
+  get "places" , to: "places#index" ,defaults: {format: 'json'}
+  get "places/:id" , to: "places#show" ,defaults: {format: 'json'}
+  put "places/:id" ,to: "places#update"
 
+  get "users" , to: "users#index" ,defaults: {format: 'json'}
+  get "users/:id" , to: "users#show" ,defaults: {format: 'json'}
+  put "users/:id" ,to: "users#update"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
