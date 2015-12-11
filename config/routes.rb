@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "places" , to: "places#index" ,defaults: {format: 'json'}
   get "places/:id" , to: "places#show" ,defaults: {format: 'json'}
   put "places/:id" ,to: "places#update"
+  # What for do you declere so many routes? wouldn't be better to use #resources to keep it cleaner?
 
   get "users" , to: "users#index" ,defaults: {format: 'json'}
   get "users/:id" , to: "users#show" ,defaults: {format: 'json'}
