@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
             :last_name ,
             :city,
             format: {
-              with: /\A[a-zA-Z ]+\z/,
+              with: /\A[a-zA-Z ]+\z/, # TODO: describe what this regexp means
               message: "only allows letters" },
             presence: true
 end
