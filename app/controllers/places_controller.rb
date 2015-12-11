@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
   end
 
   def update
-    @place.update(place_params)
+    @place.update(place_params) # what will be outputed in case of unsuccessful update(for instance if validation fails). it should responce with errors(from my point of view, isn't it?)
   end
 
   private
